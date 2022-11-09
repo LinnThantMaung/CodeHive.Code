@@ -1,34 +1,118 @@
 [
 {
-    "CTD":"Testing",
-    "ACFU":"GitHubTest"
+    "CTD":"ActionBar-Menu",
+    "ACFU":"
+}
+@Override
+public boolean onCreateOptionsMenu(Menu menu){
+menu.add("Share")
+.setIcon(R.drawable.share)
+    .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+menu.add("Copy")
+.setIcon(R.drawable.copy)
+    .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+return true;
+}
+@Override
+public boolean onOptionsItemSelected(final MenuItem item){
+    switch (item.getTitle().toString()) {
+case "Copy":
+_copy();
+
+break;
+case "Share":
+_share();
+return true;
+}
+        return super.onOptionsItemSelected(item);
+"
   },
   {
-"CTD":"Hello",
-"ACFU":"GitHubTest"
+"CTD":"ActionBar-BackHome",
+"ACFU":"
+getActionBar().setDisplayHomeAsUpEnabled(true);
+/* */} 
+@Override 
+public boolean onMenuItemSelected(int featureId, MenuItem item) {
+int itemId = item.getItemId(); 
+switch (itemId) {
+case android.R.id.home:
+finish();
+break;
+}
+return true;
+"
   },
 {
-    "CTD":"Testing",
-    "ACFU":"GitHubTest"
+    "CTD":"ActionBar-SetIcon",
+    "ACFU":"getActionBar().setIcon(r.drawable.icon_name);"
   },
   {
-"CTD":"Hello",
-"ACFU":"GitHubTest"
+"CTD":"Activity-Transition",
+"ACFU":"overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+
+
+overridePendingTransition(android.R.anim.overshoot_interpolator, android.R.anim.overshoot_interpolator);
+
+
+overridePendingTransition(android.R.anim.linear_interpolator, android.R.anim.linear_interpolator);
+"
   },
 {
-    "CTD":"Testing",
-    "ACFU":"GitHubTest"
+    "CTD":"APK-CheckInstalling",
+    "ACFU":"boolean isAppInstalled = appInstalledOrNot("com.besome.sketch");
+
+if(isAppInstalled) {
+showMessage("If//CaseShowMessage");
+} else {showMessage("Else//CaseShowMessage");}}
+
+private boolean appInstalledOrNot(String uri) { android.content.pm.PackageManager pm = getPackageManager(); try { pm.getPackageInfo(uri, android.content.pm.PackageManager.GET_ACTIVITIES); return true; } catch (android.content.pm.PackageManager.NameNotFoundException e) { } return false;
+"
   },
   {
-"CTD":"Hello",
-"ACFU":"GitHubTest"
+"CTD":"Check Wifi Internet Connection",
+"ACFU":"
+// Place it wherever you want.
+// Check internet wifi connection.
+
+android.net.ConnectivityManager connMgr = (android.net.ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+android.net.NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+if (networkInfo != null && networkInfo.isConnected()) {
+} else {
+showMessage("Internet Error. Please check your Internet... !");
+
+// If the wifi internet is not connected then go directly to the wifi device settings.
+
+startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
+
+final android.net.wifi.WifiManager wifi = (android.net.wifi.WifiManager)getSystemService(Context.WIFI_SERVICE);
+wifi.setWifiEnabled(true);
+}
+
+
+
+//Need permission
+
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+
+
+"
   },
 {
-    "CTD":"Testing",
-    "ACFU":"GitHubTest"
+    "CTD":"Checkbox Color",
+    "ACFU":"checkbox1.getButtonDrawable().setColorFilter(Color.parseColor("#FF00FF"), PorterDuff.Mode.SRC_IN);
+
+//checkbox1 is your checkbox ID
+//#FF00FF is your RRGGBB color
+"
   },
   {
-"CTD":"Hello",
-"ACFU":"GitHubTest"
+"CTD":"Clear all data of SharePreference",
+"ACFU":"data.edit().clear().apply();"
   }
 ]
